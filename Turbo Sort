@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    int arr[t];
+    for(int i = 0;i<=t-1;i++){
+        int a;
+        cin>>a;
+        arr[i]=a;
+    }
+    sort(arr,arr+t);
+    for(int i = 0;i<=t-1;i++){
+     
+     
+        cout<<arr[i]<<endl;
+    }
+    
+}
+Question Link:- https://www.codechef.com/problems/TSORT
