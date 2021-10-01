@@ -1,0 +1,28 @@
+#include <bits/stdc++.h> 
+  
+using namespace std; 
+int reversDigits(int num) 
+{ 
+    int amulya = 0; 
+    while(num > 0) 
+    { 
+        amulya= amulya*10 + num%10; 
+        num = num/10; 
+    } 
+    return amulya; 
+} 
+  
+
+int main() 
+{
+int t;
+  cin >> t;
+  while (t--)
+  { int num ; 
+cin>>num;
+    cout  << reversDigits(num)<<endl; 
+    getchar(); 
+    }return 0; 
+} 
+  
+Question Link:- https://www.codechef.com/problems/FLOW007
