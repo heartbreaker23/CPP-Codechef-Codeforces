@@ -1,0 +1,57 @@
+/*****     *****
+ *******   *******
+********* *********
+*******************
+ *****************
+  ****TITLI******
+   *************
+    ***********
+     *********
+      *******
+       *****
+        ***
+         */
+#include<bits/stdc++.h>
+#define fio ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#define ll long long int
+using namespace std;
+
+int main()
+{
+	
+fio
+	
+ll t;
+
+cin>>t;
+	
+while(t--)
+{   ll n,k;
+cin>>n>>k;
+ll art[n];
+for(int i=0;i<n;i++)
+{cin>>art[i];
+}
+ll sum =0,sum1=0,arti[n];
+for(int i=0;i<n;i++)
+{
+    sum +=art[i];
+}
+for(int i=0;i<n;i++)
+{
+    if(art[i]>=k)
+    arti[i]=k;
+  else
+  arti[i]=art[i];
+}
+for(int i=0;i<n;i++)
+{sum1 +=arti[i];
+}
+ll sut=0;
+sut = sum-sum1;
+cout<<sut<<endl;
+}
+return 0;
+}
+
+Question Link:-https://www.codechef.com/problems/PRICECON
