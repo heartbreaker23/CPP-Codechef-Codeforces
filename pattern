@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <conio.h>
+void main()
+{   int n,i,j,left=0,top=0,num;
+	printf("no of boxes=");
+	scanf("%d",&n);
+	int a[n*2-1][n*2-1],right=n*2-2,bottom=n*2-2;
+	
+	num=n;
+	for(i=0;i<n;i++)
+	{
+		for(j=top;j<=bottom;j++)
+		{
+			a[top][j]=num;
+			a[j][left]=num;
+			a[j][bottom]=num;
+			a[right][j]=num;
+		}
+		left++;
+		top++;
+		bottom--;
+		right--;
+		num--;
+	}
+	for(i=0;i<n*2-1;i++)
+	{
+		for(j=0;j<n*2-1;j++)
+		{
+			printf("%d ",a[i][j]);
+		}
+		printf("\n");
+	}
+
+}
