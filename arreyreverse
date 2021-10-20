@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <conio.h>
+void main()
+{   int n,i,temp,size;
+  printf("enter size: ");
+  scanf("%d",&size);
+  int a[size];
+   printf("enter elements:\n ");
+	for(i=0;i<size;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	n=size;
+for(i=0;i<=size/2;i++)
+	{
+		temp=a[i];
+		a[i]=a[size-i-1];
+		a[size-i-1]=temp;
+	}
+	for(i=0;i<size;i++)
+	
+	{
+	printf("after: ");
+	printf("%d\n",a[i]);
+	}
+}
+	
