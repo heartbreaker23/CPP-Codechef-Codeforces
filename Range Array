@@ -1,0 +1,97 @@
+#include <bits/stdc++.h>
+#define szof(x) (int)x.size()
+using namespace std;
+
+mt19937 rnd(time(0));
+
+const int MAXN = 1e5 + 10;
+int a[MAXN], pos[MAXN];
+
+void solve() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+        a[i]--;
+        pos[a[i]] = i;
+    }
+    set<pair<int, int>> now;
+    int l = 0;
+    long long ans = 0;
+    for (int r = 0; r < n; ++r) {
+        if (l <= a[r] && a[r] <= r) {
+            now.insert({r, a[r]});
+            while (1) {
+                auto it = now.find({r, a[r]});
+                if (it == now.end()) {
+                    break;
+                }
+                auto it1 = it, it2 = it;
+                bool ok = true;
+                if (it != now.begin()) {
+                    it1--;
+                    if (it1->second > a[r]) ok = false;
+                }
+                it2++;
+                if (it2 != now.end()) {
+                    if (it2->second < a[r]) ok = false;
+                }
+
+                if (!ok) {
+                    if (l <= a[l] && a[l] <= r) now.erase({l, a[l]});
+                    if (l + 1 <= pos[l] && pos[l] <= r) now.erase({pos[l], l});
+                    l++;
+                } else break;
+            }
+        }
+        if (l <= pos[r] && pos[r] <= r - 1) {
+            now.insert({pos[r], r});
+            while (1) {
+                /*cout << "!" << endl;
+                for (auto it : now) {
+                    cout << it.first << " " << it.second << endl;
+                }*/
+                auto it = now.find({pos[r], r});
+                if (it == now.end()) {
+                    break;
+                }
+                auto it1 = it, it2 = it;
+                bool ok = true;
+                if (it != now.begin()) {
+                    it1--;
+                    if (it1->second > r) ok = false;
+                }
+                it2++;
+                if (it2 != now.end()) {
+                    if (it2->second < r) ok = false;
+                }
+                if (!ok) {
+                    if (l <= a[l] && a[l] <= r) now.erase({l, a[l]});
+                    if (l + 1 <= pos[l] && pos[l] <= r) now.erase({pos[l], l});
+                    l++;
+                } else break;
+            }
+        }
+        /*cout << l << " " << r << ":" << endl;
+        for (auto it : now) {
+            cout << it.first << " " << it.second << "\n";
+        }*/
+        ans += r - l + 1;
+    }
+    cout << ans << "\n";
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    int t = 1;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+
+
+
+Question Link:-https://www.codechef.com/problems/RARRAY
