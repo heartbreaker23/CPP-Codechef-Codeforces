@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+      int z,y;
+      cin>>z>>y;
+      if(z<y)
+        cout<<max(2*z,y)*max(2*z,y)<<endl;
+      else
+        cout<<max(2*y,z)*max(2*y,z)<<endl;
+
+    }
+
+
+
+
+
+  
+    return 0;
+}
