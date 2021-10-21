@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int titli( int N)
+{
+    int jyotiN = floor(sqrt(N)) + 1;
+
+    return jyotiN * jyotiN;
+}
+
+bool isPerfectSquare(long double x)
+{
+
+  long double sr = sqrt(x);
+
+  return ((sr - floor(sr)) == 0);
+}
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int d;
+        cin>>d;
+        int z[d];
+        for(int i=0;i<d;i++)
+            cin>>z[i];
+
+        int minu=99999999;
+        sort(z,z+d);
+        for(int i=0;i<d-1;i++)
+        {
+            if(z[i+1]-z[i]<minu)
+                minu=z[i+1]-z[i];
+        }
+       cout<<minu<<endl;
+    }
+ return 0;
+}
