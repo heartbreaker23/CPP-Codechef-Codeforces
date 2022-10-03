@@ -15,8 +15,9 @@ int main()
 
        ans = ((a+c-1)/c);
    
-  // }
-  // else if(b>d)
+int you=0;
+you++;
+you--;
    ans1=(b+d-1)/d;
    
    if((ans+ans1)>k)
