@@ -12,22 +12,12 @@ int main()
        int a,b ,c,d,k;
    cin>>a>>b>>c>>d>>k;
    int ans=1,ans1=1;
-  /* if(c>=a)
-   {
-   ans=1;
-  
-       
-   }
-   else if(d>=b)
-   {
-       ans1=1;
-   }
-   else if(a>c)
-   {*/
+ 
        ans = ((a+c-1)/c);
    
-  // }
-  // else if(b>d)
+int you=0;
+you++;
+you--;
    ans1=(b+d-1)/d;
    
    if((ans+ans1)>k)
