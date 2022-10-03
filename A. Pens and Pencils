@@ -12,7 +12,7 @@ int main()
        int a,b ,c,d,k;
    cin>>a>>b>>c>>d>>k;
    int ans=1,ans1=1;
- 
+
        ans = ((a+c-1)/c);
    
 int you=0;
