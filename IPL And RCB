@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//this is main function 
 int main() {
 int t;
 cin>>t;
