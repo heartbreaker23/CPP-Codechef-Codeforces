@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int test;
+  cin>>test;
+  while(test--)
+  {
+      int n;
+      cin>>n;
+    vector<int>a(n);
+    vector<int>b(n);
+    for(int i=0;i<n;i++)
+    cin>>a[i];
+      for(int i=0;i<n;i++)
+      cin>>b[i];
+      vector<int>mini;
+      vector<int>maxi;
+      int prev=n;
+      vector<int>prefix(n);
+      for(int i=n-1;i>=0;i--)
+      {
+         int index= lower_bound(b.begin(),b.end(),a[i])-b.begin();
+         prefix[i]=prev; 
+         if(index==i)
+           prev=index;
+
+         
+            
+          
+      }
+      for(int i=0;i<n;i++)
+      {
+          int first= lower_bound(b.begin(),b.end(),a[i])-b.begin();
+          int last= prefix[i]-1;
+          //cout<<first<<" "<<last<<endl;
+          maxi.push_back(max(b[last]-a[i],b[first]-a[i]));
+          mini.push_back(b[first]-a[i]);
+          
+      }
+     
+      for(auto it:mini)
+      cout<<it<<" ";
+      cout<<endl;
+      for(auto it:maxi)
+      cout<<it<<" ";
+      cout<<endl;
+      
+    }  
+    
+    
+    
+}
