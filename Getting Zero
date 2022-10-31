@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define pb push_back
+void func(vector<int>&v,int n)
+{
+	vector<int>ans;
+	vector<int>dp(32769,-1);
+	for(int i=0;i<n;i++)
+{
+	if(v[i]==0)
+	{ans.pb(0);continue;}
+	
+	int cmax= 15;
+	if(dp[v[i]]!=-1)
+	{
+		ans.pb(dp[v[i]]);
+		continue;
+	}
+	
+	for(int j=0;j<=14;j++)	
+	{
+	int count2= 0;
+	int a= v[i]+j;	
+	while(a%2==0)
+	{
+	count2++;
+		a/=2;
+	}	
+	cmax= min(cmax,(15-count2)+j);		
+		
+	}
+	dp[v[i]]= cmax;
+	ans.pb(cmax);
+	
+}			
+
+for(auto it:ans)
+cout<<it<<" ";	
+	
+}
+int main()
+{
+	ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+	int n ;
+	cin>>n;
+	vector<int>v(n);
+	for(int i=0;i<n;i++)
+		cin>>v[i];
+		
+	func(v,n);
+	
+	
+}
