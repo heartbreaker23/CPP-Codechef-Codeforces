@@ -1,0 +1,97 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> find(int index,char tofind,char tocount,string &look)
+{
+	int i=index;int counter=0;
+	for(i=index;i<look.size();i++)
+	{
+		if(look[i]==tocount)
+		counter++;
+		if(look[i]==tofind)
+			return {i,counter};
+	}
+	
+	return {i,counter};
+	
+}
+ 
+ 
+bool func(string a, string b, int n)
+{
+/*	vector<int>calb(n,0);
+	vector<int>calc(n,0);
+	int bcounter=0;
+	int ccounter=0;
+	for(auto it:a)
+	{
+		if(it=='b')
+		bcounter++;
+		if(it=='c')
+		counter++;
+		calb[i]= bcounter;
+		calc[i]= ccounter;
+		
+	}*/
+	int blastpos=0;
+	
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]!=b[i])
+		{
+			if(b[i]=='b')
+			{
+			vector<int>pos = find(i,'b','a',a);	
+				if(pos[0]<n and pos[1]==pos[0]-i)
+					swap(a[i],a[pos[0]]);
+				else
+				return false;
+			}
+			
+			else if(b[i]=='c')
+			{
+		vector<int>pos	 = find(i,'c','b',a);
+					if(pos[0]<n and pos[1]==pos[0]-i)
+					swap(a[i],a[pos[0]]);
+				else
+				return false;
+ 
+			}
+			
+			else
+			return false;
+			
+		}
+		
+		
+		
+		
+	}
+	
+	
+	return true;
+	
+	
+	
+}
+ 
+ 
+int main()
+{
+	int test;
+	cin>>test;
+	while(test--)
+	{
+		
+		int n;cin>>n;
+		string a,b;
+		cin>>a>>b;
+		
+		if(func(a,b,n))
+		cout<<"YES";
+		else
+		cout<<"NO";
+		cout<<endl;
+		
+		
+	}
+}
