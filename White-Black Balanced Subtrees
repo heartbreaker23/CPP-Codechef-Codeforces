@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+pair<int,int> dfs(int node,vector<vector<int>>&adj,int &count,string &s)
+{
+ 
+ pair<int,int>p ={0,0};
+ int a=0,b=0;
+ for(auto it:adj[node])
+ {
+      tie(a,b)=dfs(it,adj,count,s);   
+      p.first+=a;
+      p.second+=b;
+}
+if(s[node-1]=='W')
+p.first+=1;
+else
+p.second+=1;
+
+if(p.second==p.first)
+count++;
+return {p.first,p.second};
+    
+}
+int main()
+{
+    
+    int test;
+    cin>>test;
+    while(test--)
+    {
+        int n;
+        cin>>n;
+        vector<int>v(n-1);
+        for(int i=0;i<n-1;i++)
+        cin>>v[i];
+        vector<vector<int>>adj(n+1);
+        int count=2;
+        for(auto it:v)
+        {
+            adj[it].push_back(count);
+            count++;
+        }
+        int sc=0;
+        string s;
+        cin>>s;
+        dfs(1,adj,sc,s);     
+        
+        cout<<sc<<endl;
+        
+    }
+}
